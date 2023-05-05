@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @include('partials.head')
-    <body class="antialiased">
+@include('partials.head')
         <div class="container">
             @include('partials.navbar')
-            <h1 class="mt-5">hello world</h1>
+            <div class="container bg-light mt-5 p-3">
+                <div class="row rounded-lg">
+                    <div class="col">
+                        <h1 class="text-center">
+                            List of Books
+                        </h1>
+                    </div>
+                </div>
+                <div class="row rounded-lg">
+                    <div class="col">
+                       @foreach ($buku as $data )
+                           <ul>
+                                <li>{{ $data->nama }}</li>
+                                <li>{{ $data->pengarang }}</li>
+                                <li>{{ $data->harga }}</li>
+                           </ul>
+                       @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
+@include('partials.footer')
+
+
         
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    </body>
-</html>

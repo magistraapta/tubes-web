@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\bukuController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [bukuController::class, 'getAllBook']);
+
 
 Route::get('login', function(){
     return view('login');

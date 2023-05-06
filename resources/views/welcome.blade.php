@@ -1,7 +1,12 @@
 @include('partials.head')
         <div class="container">
             @include('partials.navbar')
-            <div class="container bg-light mt-5 p-3 " >
+            <div class="container bg-light my-5  p-3 " >
+                @if (session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="row rounded-lg">
                     <div class="col">
                         <h1 class="text-center">
@@ -9,11 +14,11 @@
                         </h1>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center border">
+                <div class="row d-flex justify-content-center">
                     @foreach ($buku as $data )
-                        <div class="col-8 p-4 bg-primary text-white rounded-3 d-flex items-center justify-content-between">
+                        <div class="col-8 p-4 bg-primary text-white rounded-3 d-flex items-center justify-content-between my-2">
                             <div>
-                                <h3>{{ $data->nama }}</h3>
+                                <h3 class="text-uppercase"><a href="detail/{{ $data["id"]}}" class="text-decoration-none text-white">{{ $data->nama }}</a></h3>
                                 <p>{{ $data->pengarang }}</p>
                             </div>
                             <div>

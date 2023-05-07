@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 
 class bukuController extends Controller
 {
-    public function getAllBook(){
-        $buku = Buku::all()->take(4);
+    public function getAllBook(request $request){
+        if ($request->has('search')) {
+            $buku = Buku::where('nama','LIKE', '%' .$request->search. '%')->paginate(5);
+        } else {
+            $buku = Buku::paginate(5);
+        }
+        
         return view('welcome', compact(['buku']));
     }
 
@@ -22,14 +27,20 @@ class bukuController extends Controller
         return view('addBook');
     }
 
-    public function store(request $request){
-        Buku::create($request->except(['_token', 'submit']));
+    public function store(request $request)
+    {
+        $buku = Buku::create($request->except(['_token', 'submit']));
+        if ($request->hasfile('foto')) {
+            $request->file('foto')->move('cover/', $request->file('foto')->getClientOriginalName());
+            $buku->foto = $request->file('foto')->getClientOriginalName();
+            $buku->save();
+        }
         return redirect('/');
     }
 
     public function destroy($id){
         Buku::destroy($id);
-        return redirect('/')->with('success', 'data berhasil dihapus');
+        return redirect('/')->with('success', 'Buku berhasil dihapus');
     }
 
     public function edit($id){
@@ -39,6 +50,6 @@ class bukuController extends Controller
 
     public function update($id, request $request){
         Buku::find($id)->update($request->except(['_token', 'submit']));
-        return redirect('/');
+        return redirect('/')->with('success', 'Buku berhasil diperbarui');
     }
 }

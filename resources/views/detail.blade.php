@@ -2,11 +2,16 @@
 <div class="container">
     @include('partials.navbar')
     <div class="container mt-5 bg-light p-4">
-        <div class="row">
-            <div class="col ">
+        <div class="row d-flex justify-content-between">
+            <div class="col-8">
                 <h1 class="text-uppercase">{{ $buku->nama }}</h1>
-                <p>{{ $buku->pengarang }}</p>
-                <h4>{{ $buku->deskripsi }}</h4>
+                <h5 class="text-capitalize">{{ $buku->pengarang }}</h5>
+                <div class="col-11 mt-4">
+                    <p class="fw-light lh-base">{{ $buku->deskripsi }}</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{{ asset('cover/' .$buku->foto) }}" alt="" width="300" height="500">
             </div>
         </div>
         <div class="row">

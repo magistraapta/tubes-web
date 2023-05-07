@@ -27,6 +27,11 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        {{ $buku->links('pagination::bootstrap-5') }}
+                    </div>
+                </div>
             </div>
         </div>
 @include('partials.footer')

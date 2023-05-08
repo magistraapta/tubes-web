@@ -18,7 +18,7 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div>
-            <button class="btn btn-primary ml-2"><a href="login" class="text-decoration-none text-white">Login</a></button>
+            <button class="btn btn-primary ml-2"><a href="/register" class="text-decoration-none text-white">Login</a></button>
         </div>
       </div>
     </div>

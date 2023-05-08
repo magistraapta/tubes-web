@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserRegister;
 use App\Http\Controllers\bukuController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +19,8 @@ use App\Http\Controllers\bukuController;
 Route::get('/', [bukuController::class, 'getAllBook']);
 
 
-Route::get('login', function(){
-    return view('login');
-});
+Route::get('/register', [UserRegister::class, 'index']);
+Route::post('/register/store', [UserRegister::class, 'store']);
 
 Route::get('create', [bukuController::class, 'create']);
 Route::post('store', [bukuController::class, 'store']);

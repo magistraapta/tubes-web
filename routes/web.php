@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserRegister;
 use App\Http\Controllers\bukuController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\bukuController;
 
 Route::get('/', [bukuController::class, 'getAllBook']);
 
+Route::get('login', [LoginController::class, 'index']);
+Route::post('login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [UserRegister::class, 'index']);
 Route::post('/register/store', [UserRegister::class, 'store']);

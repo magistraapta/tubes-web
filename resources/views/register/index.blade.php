@@ -1,7 +1,6 @@
 @include('partials.head')
-
+@include('partials.navbar')
 <div class="container">
-    @include('partials.navbar')
     <div class="container">
         <div class="row d-flex justify-content-center bg-light rounded-3 my-2 py-5">
             <div class="col-md-5 ">

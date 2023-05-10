@@ -1,36 +1,30 @@
 @include('partials.head')
-        <div class="container">
-            @include('partials.navbar')
-            <div class="container bg-light my-5  p-3 " >
-                @if (session()->has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                <div class="row rounded-lg">
-                    <div class="col">
-                        <h1 class="text-center">
-                            List of Books
-                        </h1>
-                    </div>
+@include('partials.navbar')
+        <div class="container  p-5">
+            <div class="row">
+                <div class="col">
+                    <h1 class="fw-bold text-center">Get your new book with <br> the <span class="text-warning">great price.</span></h1>
+                    <p class="mt-3 text-center">Kami menjual buku yang terjamin original dan bekualitas</p>
                 </div>
-                <div class="row d-flex justify-content-center">
-                    @foreach ($buku as $data )
-                        <div class="col-8 p-4 bg-primary text-white rounded-3 d-flex items-center justify-content-between my-2">
-                            <div>
-                                <h3 class="text-uppercase"><a href="detail/{{ $data["id"]}}" class="text-decoration-none text-white">{{ $data->nama }}</a></h3>
-                                <p>{{ $data->pengarang }}</p>
-                            </div>
-                            <div>
-                                <h5>Rp.{{ $data->harga }}</h5>
-                            </div>
+            </div>
+            <div class="row  d-flex ">
+                <div class="col  d-flex justify-content-between ">
+                    
+                    @foreach ($buku->take(4) as $b )
+                    
+                    <div class=" col-3  p-2">
+                        <div class="p-4  d-flex justify-content-center">
+                            <img src="{{ asset('cover/' .$b->foto) }}" alt="" width="150">
                         </div>
-                    @endforeach
-                </div>
-                <div class="row mt-5">
-                    <div class="col">
-                        {{ $buku->links('pagination::bootstrap-5') }}
+                        <div class="p-3 ">
+                            <h5 class="fw-bold"><a href="detail/{{ $b->id }}">{{ $b->nama }}</a> </h5>
+                            <p class="text-capitalize">{{ $b->pengarang }}</p>
+                            <h5>Rp.{{ $b->harga }}</h5>
+                        </div>
                     </div>
+                    
+                    @endforeach
+                    
                 </div>
             </div>
         </div>

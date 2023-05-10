@@ -10,7 +10,7 @@ class bukuController extends Controller
 {
     public function getAllBook(request $request){
         if ($request->has('search')) {
-            $buku = Buku::where('nama','LIKE', '%' .$request->search. '%')->paginate(5);
+            $buku = Buku::where('nama','LIKE', '%' .$request->search. '%')->paginate(4);
         } else {
             $buku = Buku::paginate(5);
         }
@@ -49,7 +49,7 @@ class bukuController extends Controller
     }
 
     public function update($id, request $request){
-        Buku::find($id)->update($request->except(['_token', 'submit']));
+        Buku::find($id)->update($request);
         return redirect('/')->with('success', 'Buku berhasil diperbarui');
     }
 }

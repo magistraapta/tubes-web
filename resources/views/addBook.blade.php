@@ -1,6 +1,7 @@
 @include('partials.head')
+@include('partials.navbar')
 <div class="container">
-    @include('partials.navbar')
+    
     <div class="container bg-light mt-5 d-flex justify-content-center">
         <form class="col-6 p-5" id="bookForm" method="POST" action="store" enctype="multipart/form-data">
             @csrf

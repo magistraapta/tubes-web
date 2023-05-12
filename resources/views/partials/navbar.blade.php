@@ -10,9 +10,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="create">Add Book</a>
-            </li>
           </ul>
         </div>
         <div class="d-flex col-7 justify-content-between">
@@ -22,12 +19,31 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
-          <div>
+          
+          <ul class="navbar-nav ms-auto">
+            @auth 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->name }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                <li><form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item">log out</button>
+                </form>
+              </li>
+              </ul>
+            </li>
+            @else
+            <div>
               <button class="btn btn-outline-primary ml-2"><a href="/register" class="text-decoration-none ">Sign up</a></button>
-              <button class="btn btn-primary"><a href="login" class="text-decoration-none text-white">Log in</a></button>
-          </div>
+              <button class="btn btn-primary"><a href="{{ route('login') }}" class="text-decoration-none text-white">Log in</a></button>
+            </div>
+            @endauth
         </div>
         </div>
-        
     </div>
   </nav>
+
+  

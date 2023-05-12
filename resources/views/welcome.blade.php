@@ -10,7 +10,7 @@
             <div class="row  d-flex ">
                 <div class="col  d-flex justify-content-between ">
                     
-                    @foreach ($buku->take(4) as $b )
+                    @foreach ($buku as $b )
                     
                     <div class=" col-3  p-2">
                         <div class="p-4  d-flex justify-content-center">

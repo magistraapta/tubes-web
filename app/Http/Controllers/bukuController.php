@@ -49,7 +49,7 @@ class bukuController extends Controller
     }
 
     public function update($id, request $request){
-        Buku::find($id)->update($request);
+        Buku::find($id)->update($request->except(['_token', 'submit']));
         return redirect('/')->with('success', 'Buku berhasil diperbarui');
     }
 }

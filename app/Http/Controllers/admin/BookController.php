@@ -31,12 +31,14 @@ class BookController extends Controller
         ]);
 
         $cover = $request->cover;
+        
 
         $originalCoverName = Str::random(10).$cover->getClientOriginalName();
 
-        $cover->storeAs('public/cover', $originalCoverName);
+        
+        $cover->storeAs('public/thumbnail', $originalCoverName);
+        $data['cover'] = $originalCoverName;
         book::create($data);
-
         return redirect()->route('admin.books')->with('success', 'buku berhasil ditambahkan');
     }
 

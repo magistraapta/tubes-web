@@ -12,40 +12,17 @@
         <h3 class="fw-semibold">Latest release</h3>
     </div>
     <div class="d-flex  justify-content-between">
+        {{-- @foreach ($books as $book )
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ asset('storage/cover/0NM4sbce9crichdad.jpeg') }}" alt="Card image cap" height="400">
-            <div class="card-body">
-              <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
-              <p class="card-text text-uppercase">robert kiyosaki</p>
-              <h4 class="card-text">Rp.50000</h4>
-            </div>
+          <img class="card-img-top" src="{{ asset('storage/cover/'.$book->cover) }}" alt="Card image cap" height="400">
+          <div class="card-body">
+            <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
+            <p class="card-text text-uppercase">robert kiyosaki</p>
+            <h4 class="card-text">Rp.50000</h4>
           </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ asset('storage/cover/0NM4sbce9crichdad.jpeg') }}" alt="Card image cap" height="400">
-            <div class="card-body">
-              <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
-              <p class="card-text text-uppercase">robert kiyosaki</p>
-              <h4 class="card-text">Rp.50000</h4>
-            </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ asset('storage/cover/9LxR6DCenE81LAv8okW8L.jpeg') }}" alt="Card image cap" height="400">
-            <div class="card-body">
-              <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
-              <p class="card-text text-uppercase">robert kiyosaki</p>
-              <h4 class="card-text">Rp.50000</h4>
-            </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ asset('storage/cover/9LxR6DCenE81LAv8okW8L.jpeg') }}" alt="Card image cap" height="400">
-            <div class="card-body">
-              <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
-              <p class="card-text text-uppercase">robert kiyosaki</p>
-              <h4 class="card-text">Rp.50000</h4>
-            </div>
-          </div>
+        </div>
+        @endforeach --}}
     </div>
-    
 </div>
 @endsection
 

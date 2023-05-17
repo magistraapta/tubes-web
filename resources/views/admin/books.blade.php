@@ -33,6 +33,7 @@
                     <th>Title</th>
                     <th>author</th>
                     <th>Price</th>
+                    <th>cover</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -43,13 +44,13 @@
                       <td>{{ $book->title }}</td>
                       <td>{{ $book->author }}</td>
                       <td>{{ $book->price }}</td>
+                      <td><img src="{{ asset('storage/thumbnail/'.$book->cover) }}" height="200" alt="cover"></td>
                       <td class="d-flex col-5  justify-content-between">
                         <a href="{{ route('admin.book.edit', $book->id) }}" class="btn btn-secondary">Edit</a>
                         <form action="{{ route('admin.book.delete', $book->id) }}" method="post">
                           @method('delete')
                           @csrf
                           <button type="submit" class="btn btn-danger">Delete</button>
-                          
                         </form>
                       </td>
                     </tr>

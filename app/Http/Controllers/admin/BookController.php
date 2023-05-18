@@ -64,10 +64,10 @@ class BookController extends Controller
         if ($request->cover) {
             $cover = $request->cover;
             $originalCoverName = Str::random(10).$cover->getClientOriginalName();
-            $cover->storeAs('public/cover', $originalCoverName);
+            $cover->storeAs('public/thumbnail', $originalCoverName);
             $data['cover'] = $originalCoverName;
 
-            Storage::delete('public/cover'.$book->cover);
+            Storage::delete('public/thumbnail'.$book->cover);
         }
 
         $book->update($data);

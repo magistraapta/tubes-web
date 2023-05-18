@@ -35,7 +35,7 @@
       </div>
     @endif
 
-      <form action="{{ route('admin.login.auth') }}" method="post">
+      <form action="{{ route('user.auth') }}" method="post">
         @csrf
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">

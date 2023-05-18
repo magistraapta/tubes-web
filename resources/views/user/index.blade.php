@@ -1,5 +1,5 @@
 @extends('user.layouts.base')
-@section('title', 'Home')
+@section('title', 'books')
 
 @section('content')
 <div class="my-5">
@@ -12,16 +12,16 @@
         <h3 class="fw-semibold">Latest release</h3>
     </div>
     <div class="d-flex  justify-content-between">
-        {{-- @foreach ($books as $book )
+      @foreach ($books as $book )
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{ asset('storage/cover/'.$book->cover) }}" alt="Card image cap" height="400">
+          <img class="card-img-top" src="{{ asset('storage/thumbnail/'.$book->cover) }}" alt="Card image cap" height="400">
           <div class="card-body">
-            <h4 class="card-text text-uppercase">Rich Dad Poor dad</h4>
-            <p class="card-text text-uppercase">robert kiyosaki</p>
-            <h4 class="card-text">Rp.50000</h4>
+            <h4 class="card-text text-uppercase">{{ $book->title }}</h4>
+            <p class="card-text text-uppercase">{{ $book->author }}</p>
+            <h4 class="card-text">{{ $book->price }}</h4>
           </div>
         </div>
-        @endforeach --}}
+      @endforeach
     </div>
 </div>
 @endsection

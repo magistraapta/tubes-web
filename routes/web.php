@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\user\RegisterController;
 use App\Http\Controllers\user\LoginController as UserLoginController;
+use App\Http\Controllers\user\BookController as UserBookController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -40,9 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
     
 });
 
-Route::view('/', 'user.index')->name('user.index');
+Route::get('/', [UserBookController::class, 'index'])->name('user.index');
 Route::group(['prefix' => 'user'], function(){
     Route::get('register', [RegisterController::class, 'index'])->name('user.register');
     Route::post('register', [RegisterController::class, 'store'])->name('user.register');
     Route::get('login', [UserLoginController::class, 'index'])->name('user.login');
+    Route::post('login', [UserLoginController::class, 'authenticate'])->name('user.auth');
+    Route::get('logout', [UserLoginController::class, 'logout'])->name('user.logout');
 });

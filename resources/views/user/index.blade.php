@@ -11,17 +11,20 @@
     <div class="my-3">
         <h3 class="fw-semibold">Latest release</h3>
     </div>
-    <div class="d-flex  justify-content-between">
-      @foreach ($books as $book )
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{ asset('storage/thumbnail/'.$book->cover) }}" alt="Card image cap" height="400">
+    <div class=" container  horizontal-scrollable">
+      <div class="row d-flex  justify-content-between">
+        @foreach ($books as $book )
+        <div class="col-xs-4 card" style="width: 18rem;">
+          <img class="card-img-top p-4" src="{{ asset('storage/thumbnail/'.$book->cover) }}" alt="Card image cap" height="400">
           <div class="card-body">
             <h4 class="card-text text-uppercase">{{ $book->title }}</h4>
             <p class="card-text text-uppercase">{{ $book->author }}</p>
-            <h4 class="card-text">{{ $book->price }}</h4>
+            <h4 class="card-text">Rp.{{ $book->price }}</h4>
           </div>
         </div>
       @endforeach
+      </div>
+      
     </div>
 </div>
 @endsection

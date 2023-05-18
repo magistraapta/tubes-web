@@ -42,7 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
 });
 
 Route::get('/', [UserBookController::class, 'index'])->name('user.index');
-Route::group(['prefix' => 'user'], function(){
+Route::group(['prefix' => 'user', ], function(){
+    Route::get('detail/{id}', [UserBookController::class, 'show'])->name('user.detail-book');
     Route::get('register', [RegisterController::class, 'index'])->name('user.register');
     Route::post('register', [RegisterController::class, 'store'])->name('user.register');
     Route::get('login', [UserLoginController::class, 'index'])->name('user.login');

@@ -12,5 +12,10 @@ class BookController extends Controller
         $books = book::all()->take(4);
         return view('user.index', ['books' => $books]);
     }
+
+    public function show($id){
+        $books = book::find($id);
+        return view('user.detail-book', ['books' => $books]);
+    }
     
 }

@@ -17,7 +17,7 @@
         <div class="col-xs-4 card" style="width: 18rem;">
           <img class="card-img-top p-4" src="{{ asset('storage/thumbnail/'.$book->cover) }}" alt="Card image cap" height="400">
           <div class="card-body">
-            <h4 class="card-text text-uppercase">{{ $book->title }}</h4>
+            <h4 class="card-text text-uppercase"><a href="{{ route('user.detail-book', $book->id) }}">{{ $book->title }}</a></h4>
             <p class="card-text text-uppercase">{{ $book->author }}</p>
             <h4 class="card-text">Rp.{{ $book->price }}</h4>
           </div>

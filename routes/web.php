@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\user\RegisterController;
 use App\Http\Controllers\user\LoginController as UserLoginController;
 use App\Http\Controllers\user\BookController as UserBookController;
+use App\Http\Controllers\user\TransactionController as UserTransactionController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -21,12 +22,13 @@ use GuzzleHttp\Middleware;
 */
 
 
+
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
-
+    
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 
     Route::get('books', [BookController::class, 'index'])->name('admin.books');
@@ -41,12 +43,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
     
 });
 
+Route::get('login', [UserLoginController::class, 'index'])->name('user.login');
+Route::post('login', [UserLoginController::class, 'authenticate'])->name('user.auth');
+
+Route::get('register', [RegisterController::class, 'index'])->name('user.register');
+Route::post('register', [RegisterController::class, 'store'])->name('user.register');
+Route::get('detail/{id}', [UserBookController::class, 'show'])->name('user.detail-book');
 Route::get('/', [UserBookController::class, 'index'])->name('user.index');
-Route::group(['prefix' => 'user', ], function(){
-    Route::get('detail/{id}', [UserBookController::class, 'show'])->name('user.detail-book');
-    Route::get('register', [RegisterController::class, 'index'])->name('user.register');
-    Route::post('register', [RegisterController::class, 'store'])->name('user.register');
-    Route::get('login', [UserLoginController::class, 'index'])->name('user.login');
-    Route::post('login', [UserLoginController::class, 'authenticate'])->name('user.auth');
+Route::group(['prefix' => 'user', 'middleware' => ['auth'] ], function(){
+    Route::view('success', 'user.succes')->name('user.success');
+    Route::post('/checkout', [UserTransactionController::class, 'store'])->name('user.checkout');
+    
+    
     Route::get('logout', [UserLoginController::class, 'logout'])->name('user.logout');
 });

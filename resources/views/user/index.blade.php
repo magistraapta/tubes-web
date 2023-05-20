@@ -7,17 +7,23 @@
         <br> with the <span class="fw-bold text-warning ">great price</span> </h1>
 </div>
 
-<div class="bg-light p-5 rounded-3">
-    <div class="my-3">
-        <h3 class="fw-semibold">Latest release</h3>
+<div class="bg-light p-5 rounded-3 container">
+  <div class="row d-flex align-items-center">
+    <div class="col my-3 ">
+      <h3 class="fw-semibold">Latest release</h3>
     </div>
+    <div class="col-2 ">
+      <p class="text-center">See All</p>
+    </div>
+  </div>
+    
     <div class=" container  horizontal-scrollable">
       <div class="row d-flex  justify-content-between">
         @foreach ($books as $book )
         <div class="col-xs-4 card" style="width: 18rem;">
           <img class="card-img-top p-4" src="{{ asset('storage/thumbnail/'.$book->cover) }}" alt="Card image cap" height="400">
           <div class="card-body">
-            <h4 class="card-text text-uppercase"><a href="{{ route('user.detail-book', $book->id) }}">{{ $book->title }}</a></h4>
+            <h4 class="card-text text-uppercase text-truncate"><a href="{{ route('user.detail-book', $book->id) }}" >{{ $book->title }}</a></h4>
             <p class="card-text text-uppercase">{{ $book->author }}</p>
             <h4 class="card-text">Rp.{{ $book->price }}</h4>
           </div>

@@ -16,7 +16,11 @@
     <div class="row">
         <div class="col">
             <h3>Rp.{{ $books->price }}</h3>
-            <button class="btn btn-primary">Checkout</button>
+            <form action="{{ route('user.checkout') }}" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{ $books->id }}">
+                <button class="btn btn-primary" type="submit">Checkout</button>
+            </form>
         </div>
     </div>
 </div>

@@ -42,7 +42,7 @@
           </div>
           <div class="form-group">
             <label for="short-about">About</label>
-            <input type="text" class="form-control" id="about" name="description"  value="{{ $books->description }}">
+            <textarea class="form-control" name="description" id="" cols="30" rows="10" value="{{ $books->description }}"></textarea>
           </div>
           <div class="form-group">
             <label for="short-about">Price</label>

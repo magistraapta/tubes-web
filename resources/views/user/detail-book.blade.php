@@ -7,7 +7,7 @@
         <div class="col-8">
             <h1 class="text-capitalize fw-bold">{{ $books->title }}</h1>
             <h4 class="text-capitalize">{{ $books->author }}</h4>
-            <p>{{ $books->description }}</p>
+            <p class="col-9">{{ $books->description }}</p>
         </div>
         <div class="col">
             <img src="{{ asset('storage/thumbnail/'.$books->cover) }}" alt="" height="500">

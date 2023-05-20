@@ -18,4 +18,8 @@ class BookController extends Controller
         return view('user.detail-book', ['books' => $books]);
     }
     
+    public function seeAll(){
+        $books = book::all();
+        return view('user.see-all', ['books' => $books]);
+    }
 }

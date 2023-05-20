@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  p-4">
+<nav class="navbar navbar-expand-lg sticky-top bg-white p-4">
     <div class="container d-flex justify-content-between    ">
         <div class="">
             <a class="navbar-brand fs-3 fw-bold" href="{{ route('user.index') }}">Book<span class="text-warning fst-italic">Store</span></a>

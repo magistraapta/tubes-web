@@ -13,7 +13,7 @@
       <h3 class="fw-semibold">Latest release</h3>
     </div>
     <div class="col-2 ">
-      <p class="text-center">See All</p>
+      <p class="text-center"><a href="{{ route('user.see-all') }}">See All</a></p>
     </div>
   </div>
     
@@ -35,5 +35,4 @@
 </div>
 @endsection
 
-@extends('user.layouts.footer')
 

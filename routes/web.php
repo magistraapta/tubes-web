@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function(){
 Route::get('login', [UserLoginController::class, 'index'])->name('user.login');
 Route::post('login', [UserLoginController::class, 'authenticate'])->name('user.auth');
 
+Route::get('see-all', [UserBookController::class, 'seeAll'])->name('user.see-all');
+
 Route::get('register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('register', [RegisterController::class, 'store'])->name('user.register');
 Route::get('detail/{id}', [UserBookController::class, 'show'])->name('user.detail-book');

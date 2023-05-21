@@ -45,4 +45,12 @@ class TransactionController extends Controller
         
         return redirect()->route('user.success');
     }
+
+    public function index(){
+        $transactions = transaction::with([
+            'book',
+            'User'
+        ])->get();
+        return view('user.dashboard', ['transactions'=> $transactions]);
+    }
 }

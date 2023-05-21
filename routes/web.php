@@ -56,6 +56,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth'] ], function(){
     Route::view('success', 'user.succes')->name('user.success');
     Route::post('/checkout', [UserTransactionController::class, 'store'])->name('user.checkout');
     
-    
+    Route::get('dashboard', [UserTransactionController::class, 'index'])->name('user.dashboard'); 
     Route::get('logout', [UserLoginController::class, 'logout'])->name('user.logout');
 });

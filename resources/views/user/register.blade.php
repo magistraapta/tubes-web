@@ -38,7 +38,7 @@
       <form action="{{ route('user.register') }}" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="name" placeholder="username" value="{{ old('email') }}">
+          <input type="text" class="form-control" name="name" placeholder="username" value="{{ old('name') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

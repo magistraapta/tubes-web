@@ -1,5 +1,5 @@
 @extends('user.layouts.base')
-@section('title', 'detailbooks')
+@section('title', 'Detail page')
 
 @section('content')
 <div class="container bg-light rounded-3 my-5 p-4">

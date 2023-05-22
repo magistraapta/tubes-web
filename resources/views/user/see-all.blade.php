@@ -1,5 +1,5 @@
 @extends('user.layouts.base')
-@section('title', 'books')
+@section('title', 'All books')
 
 @section('content')
 <div class="container bg-light mt-5 ">

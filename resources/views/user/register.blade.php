@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Book</b>Store</a>
+    <h1 class="fw-bold">Book<span class="text-warning">Store</span></h1>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -38,10 +38,12 @@
       <form action="{{ route('user.register') }}" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="name" placeholder="username" value="{{ old('name') }}">
+          <input type="text" class="form-control" name="name" placeholder="Username" value="{{ old('name') }}">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>
             </div>
           </div>
         </div>
